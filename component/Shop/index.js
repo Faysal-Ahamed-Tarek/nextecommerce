@@ -1,9 +1,9 @@
 import { React , useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import SearchBar from "./SearchBar";
 import TopBar from "./TopBar";
 import ShopProduct from "./ShopProducts";
 import { ShopProduct_action } from "./../../redux/action";
+import SearchBar from "./SearchBar/SearchBar";
 
 const ShopContainer = () => {
   const Dispatch = useDispatch();
@@ -14,9 +14,6 @@ const ShopContainer = () => {
       .then((res) => res.json())
       .then((Data) => Dispatch(ShopProduct_action(Data)));
   }, []);
-
-  //Product View
-
 
   return (
     <>

@@ -1,10 +1,10 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import { ProductView_Action } from "../../redux/action";
-import { SortingPrice_Action } from './../../redux/action';
+import { SortingPrice_Action } from "./../../redux/action";
 
 export default function TopBar(props) {
-    const Dispatch = useDispatch();
+  const Dispatch = useDispatch();
 
   return (
     <>
@@ -16,17 +16,24 @@ export default function TopBar(props) {
         </div>
         <div className="flex gap-1 content-center items-center">
           <div>
-            <select className="px-1 md:px-4 py-2 outline-none rounded" onChange={(e) => Dispatch(SortingPrice_Action(e.target.value))}>
-              <option value="Default">Default</option>
+            <select
+              className="px-1 md:px-4 py-2 outline-none rounded"
+              onChange={(e) => Dispatch(SortingPrice_Action(e.target.value))}
+              defaultValue={'DEFAULT'}
+            >
+              <option value="DEFAULT" disabled selected>
+                Sort by
+              </option>
               <option value="LowToHigh">Price: low to high</option>
               <option value="HighToLow">Price: high to Low</option>
+              <option value="Default">All Product</option>
             </select>
           </div>
           <div className="flex content-center items-center">
             <span
               className="px-1 py-1 md:py-2 md:px-3 cursor-pointer"
               onClick={() => {
-                Dispatch(ProductView_Action())
+                Dispatch(ProductView_Action());
               }}
             >
               <svg
@@ -47,7 +54,7 @@ export default function TopBar(props) {
             <span
               className="px-1 py-1 md:py-2 md:px-3 cursor-pointer"
               onClick={() => {
-                Dispatch(ProductView_Action())
+                Dispatch(ProductView_Action());
               }}
             >
               <svg

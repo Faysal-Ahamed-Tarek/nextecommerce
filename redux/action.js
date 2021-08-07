@@ -17,3 +17,10 @@ export const SortingPrice_Action = (Option) => {
         payload: Option
     }
 }
+
+export const Category_Action = (Category) => {
+    return {
+        type: 'SearchByCategory',
+        payload: Category
+    }
+}
