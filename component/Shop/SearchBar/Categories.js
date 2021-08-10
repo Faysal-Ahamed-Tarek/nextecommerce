@@ -2,30 +2,18 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Category_Action } from "../../../redux/action";
 
-export default function SearchBar() {
+export default function CategorySearch() {
   const Dispatch = useDispatch();
-  
-  const AllProducts = useSelector((state) => state.Shop_Product);
-  const { Products } = AllProducts;
-
-  const [Category, setCategory] = useState([]);
 
   const CategoryValue = (e) => {
     Dispatch(Category_Action(e.target.value));
-    if (!Category.includes(e.target.value)) {
-      setCategory([...Category, e.target.value]);
-    } else {
-      const DltCategory = Category.filter((item) => item !== e.target.value);
-      setCategory(DltCategory);
-    }
   };
   return (
     <>
-      <div className="Shop_sidebar bg-gray-100 rounded p-3 ">
         <div>
-          <h1 className="text-lg pt-2 pb-2">Search Product By Category</h1>
+          <h1 className="text-xl pt-2 pb-2 text-purple-700">Product Categories</h1>
           <div>
-            <label className="text-lg capitalize">
+            <label className="text-lg capitalize cursor-pointer">
               <input
                 type="checkbox"
                 value="men's clothing"
@@ -36,7 +24,7 @@ export default function SearchBar() {
           </div>
 
           <div>
-            <label className="text-lg capitalize">
+            <label className="text-lg capitalize cursor-pointer">
               <input
                 type="checkbox"
                 value="jewelery"
@@ -47,7 +35,7 @@ export default function SearchBar() {
           </div>
 
           <div>
-            <label className="text-lg capitalize">
+            <label className="text-lg capitalize cursor-pointer">
               <input
                 type="checkbox"
                 value="electronics"
@@ -58,7 +46,7 @@ export default function SearchBar() {
           </div>
 
           <div>
-            <label className="text-lg capitalize">
+            <label className="text-lg capitalize cursor-pointer">
               <input
                 type="checkbox"
                 value="women's clothing"
@@ -68,7 +56,6 @@ export default function SearchBar() {
             </label>
           </div>
         </div>
-      </div>
     </>
   );
 }

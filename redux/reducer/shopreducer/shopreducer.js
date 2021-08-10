@@ -35,12 +35,6 @@ export const ShopProduct_reducer = (state = InitialState, action) => {
 
     //Product Sorting According to the Category
     case "SearchByCategory": {
-      const Data = state.Products.filter((Product) => {
-        return state.FilterCategory.map((item) =>
-          console.log(item, Product.category)
-        );
-      });
-
       if (!state.FilterCategory.includes(action.payload)) {
         return {
           ...state,
@@ -53,12 +47,38 @@ export const ShopProduct_reducer = (state = InitialState, action) => {
         const DltCategory = state.FilterCategory.filter(
           (Item) => Item !== action.payload
         );
+        if (DltCategory.length === 0) {
+          return {
+            ...state,
+            FilterCategory: DltCategory,
+            Products: state.DefaultProducts,
+          };
+        } else {
+          return {
+            ...state,
+            FilterCategory: DltCategory,
+            Products: state.DefaultProducts.filter((Product) =>
+              DltCategory.includes(Product.category)
+            ),
+          };
+        }
+      }
+    }
+
+    //Serch by Product Name
+    case "SearchByName": {
+      const filterProduct = state.Products.filter((Product) =>
+        Product.title.toLowerCase().includes(action.payload.toLowerCase())
+      );
+      if (action.payload == "") {
         return {
           ...state,
-          FilterCategory: DltCategory,
-          Products: state.DefaultProducts.filter((Product) =>
-            DltCategory.includes(Product.category)
-          ),
+          Products: state.DefaultProducts,
+        };
+      } else {
+        return {
+          ...state,
+          Products: filterProduct,
         };
       }
     }

@@ -21,7 +21,7 @@ export default function TopBar(props) {
               onChange={(e) => Dispatch(SortingPrice_Action(e.target.value))}
               defaultValue={'DEFAULT'}
             >
-              <option value="DEFAULT" disabled selected>
+              <option value="DEFAULT" disabled>
                 Sort by
               </option>
               <option value="LowToHigh">Price: low to high</option>

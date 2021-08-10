@@ -24,3 +24,10 @@ export const Category_Action = (Category) => {
         payload: Category
     }
 }
+
+export const NameSearch_Action = (NameValue) => {
+    return {
+        type: 'SearchByName',
+        payload: NameValue
+    }
+}

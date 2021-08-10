@@ -2,8 +2,8 @@ import { React , useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import TopBar from "./TopBar";
 import ShopProduct from "./ShopProducts";
-import { ShopProduct_action } from "./../../redux/action";
-import SearchBar from "./SearchBar/SearchBar";
+import SearchBar from './SearchBar/index';
+import { ShopProduct_action } from './../../redux/action';
 
 const ShopContainer = () => {
   const Dispatch = useDispatch();

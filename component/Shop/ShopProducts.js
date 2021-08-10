@@ -24,7 +24,7 @@ export default function ShopProduct() {
     <>
       {ProductView ? (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 py-5 gap-3">
-          {Products ? (
+          {Products.length > 0 ? (
             Products.map((Item, index) => (
               <GridView Item={Item} key={index} />
             ))
